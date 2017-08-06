@@ -5,10 +5,12 @@ import Component from '../decorators/component';
 export class GreetingComponent extends HTMLElement {
     @Input
     public greetingWord: string;
+    
     @Input
     public say: string;
+
     private greetingElement: Element;
-    private _enableProperties: () => {};
+    private enableProperties: () => {};
 
     connectedCallback() {
         this.innerHTML = `
@@ -17,10 +19,10 @@ export class GreetingComponent extends HTMLElement {
             </div>
         `;
         this.greetingElement = this.querySelector('.greeting');
-        this._enableProperties();
+        this.enableProperties();
     }
 
-    _propertiesChanged(propName: string, newVal: string) {
+    private propertiesChanged(propName: string, newVal: string) {
         console.log('Properties changed', newVal);
         switch(propName) {
             case 'greetingWord':

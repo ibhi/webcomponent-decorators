@@ -22,7 +22,7 @@ export default function Component(target: Function): void {
     // reflection of attribute changes to properties
     // It will update the properties from cached object so that attributes changed before
     // connected callback still gets reflected to properties
-    function _enableProperties() {
+    function enableProperties() {
         this.__propertiesEnabled = true;
         // Updating the properties from cache object
         Object.keys(this.__data).forEach((propName) => {
@@ -31,5 +31,5 @@ export default function Component(target: Function): void {
     }
     
     target.prototype.attributeChangedCallback = attributeChangedCallback;
-    target.prototype._enableProperties = _enableProperties;
+    target.prototype.enableProperties = enableProperties;
 }
