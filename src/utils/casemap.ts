@@ -1,3 +1,4 @@
+// Copied from polymer 2.0
 const caseMap = {};
 const DASH_TO_CAMEL = /-[a-z]/g;
 const CAMEL_TO_DASH = /([A-Z])/g;

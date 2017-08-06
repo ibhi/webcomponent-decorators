@@ -13,7 +13,7 @@ export class GreetingComponent extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="container">
-                <h1 class="greeting">Hello ${this.greetingWord}!</h1>
+                <h1 class="greeting">Hello ${this.greetingWord} ${this.say}!</h1>
             </div>
         `;
         this.greetingElement = this.querySelector('.greeting');
@@ -24,12 +24,18 @@ export class GreetingComponent extends HTMLElement {
         console.log('Properties changed', newVal);
         switch(propName) {
             case 'greetingWord':
-                this.updateGreeting(newVal);
+                this.updateGreeting();
                 break;
+            case 'say':
+                this.updateSay();
         }
     }
 
-    private updateGreeting(greeting): void {
-        this.greetingElement.innerHTML = `Hello ${greeting}!`;
+    private updateGreeting(): void {
+        this.greetingElement.innerHTML = `Hello ${this.greetingWord} ${this.say}!`;
+    }
+
+    private updateSay(): void {
+        this.greetingElement.innerHTML = `Hello ${this.greetingWord} ${this.say}!`;
     }
 }
