@@ -5,7 +5,7 @@ import Component from '../decorators/component';
 export class GreetingComponent extends HTMLElement {
     @Input
     public greetingWord: string;
-    
+
     @Input
     public say: string;
 
@@ -19,11 +19,11 @@ export class GreetingComponent extends HTMLElement {
             </div>
         `;
         this.greetingElement = this.querySelector('.greeting');
+        // From the @Component decorator
         this.enableProperties();
     }
 
     private propertiesChanged(propName: string, newVal: string) {
-        console.log('Properties changed', newVal);
         switch(propName) {
             case 'greetingWord':
                 this.updateGreeting();
